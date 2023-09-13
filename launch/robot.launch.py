@@ -14,9 +14,8 @@ from launch.actions import (
     OpaqueFunction,
     RegisterEventHandler,
     LogInfo,
-    IncludeLaunchDescription,
 )
-from launch.event_handlers import OnProcessStart, OnProcessExit
+from launch.event_handlers import OnProcessExit
 
 def launch_setup(context, *args, **kwargs):
 
@@ -66,6 +65,7 @@ def launch_setup(context, *args, **kwargs):
     executable="rviz2",
     name="rviz2",
     output="log",
+    parameters=[{"use_sim_time": True}],
     arguments=["-d", rviz_config_file],
   )
 
